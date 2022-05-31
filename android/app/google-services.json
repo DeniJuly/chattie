@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "124743082971",
+    "project_id": "chattie-deni",
+    "storage_bucket": "chattie-deni.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124743082971:android:744c5b611841046cb1bdfe",
+        "android_client_info": {
+          "package_name": "com.denijsa.chattie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124743082971-puutlni0lpv5b1tf70glupce7bbrkith.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.denijsa.chattie",
+            "certificate_hash": "c3e9c128073f884d89699fbed1064ba49fd8b15a"
+          }
+        },
+        {
+          "client_id": "124743082971-cbtqjq71dok1h6i3aqbgut2f0o4q477c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrekeJ1z2Mb3zZaUkLgmn6ZDbKSj1-ur0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124743082971-cbtqjq71dok1h6i3aqbgut2f0o4q477c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
