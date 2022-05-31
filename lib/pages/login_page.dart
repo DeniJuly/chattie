@@ -1,11 +1,17 @@
 import 'package:chattie/config/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: whiteColor,
+      ),
+    );
     return Scaffold(
       body: SafeArea(
         child: Container(

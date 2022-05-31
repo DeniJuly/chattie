@@ -1,5 +1,6 @@
 import 'package:chattie/config/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -8,6 +9,11 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: whiteColor,
+      ),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
