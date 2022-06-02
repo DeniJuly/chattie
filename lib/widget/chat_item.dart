@@ -13,8 +13,8 @@ class ChatItem extends StatelessWidget {
       margin: EdgeInsets.only(
         top: 8,
         bottom: 8,
-        left: isSender ? 20 : 0,
-        right: !isSender ? 20 : 0,
+        left: isSender ? 50 : DEFAULT_MARGIN,
+        right: !isSender ? 50 : DEFAULT_MARGIN,
       ),
       child: Container(
         padding: const EdgeInsets.symmetric(

@@ -110,13 +110,19 @@ class ChatPage extends StatelessWidget {
     Widget chatList() {
       return Expanded(
         child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: DEFAULT_MARGIN,
-          ),
           child: ListView(
             children: [
               ChatItem(true),
               ChatItem(false),
+              ChatItem(false),
+              ChatItem(false),
+              ChatItem(false),
+              ChatItem(false),
+              ChatItem(true),
+              ChatItem(true),
+              ChatItem(true),
+              ChatItem(true),
+              ChatItem(true),
             ],
           ),
         ),

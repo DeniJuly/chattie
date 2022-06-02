@@ -1,12 +1,15 @@
+import 'package:chattie/app/controllers/auth_controller.dart';
 import 'package:chattie/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final authController = Get.find<AuthController>();
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: whiteColor,
@@ -16,7 +19,7 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: DEFAULT_MARGIN,
           ),
           child: Column(
@@ -47,7 +50,7 @@ class LoginPage extends StatelessWidget {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => authController.loginGoogle(),
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   primary: greyColor,
