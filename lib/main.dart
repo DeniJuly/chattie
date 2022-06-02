@@ -1,4 +1,5 @@
 import 'package:chattie/app/controllers/auth_controller.dart';
+import 'package:chattie/pages/chat_page.dart';
 import 'package:chattie/pages/home_page.dart';
 import 'package:chattie/pages/login_page.dart';
 import 'package:chattie/pages/splash_page.dart';
@@ -17,46 +18,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: authController.isAuthenticated.isTrue ? '/' : '/login',
-      getPages: [
-        GetPage(
-          name: '/login',
-          page: () => const LoginPage(),
-        ),
-        GetPage(
-          name: '/',
-          page: () => const HomePage(),
-        ),
-      ],
+    return FutureBuilder(
+      future: Future.delayed(
+        const Duration(seconds: 3),
+      ),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Obx(
+            () => GetMaterialApp(
+              debugShowCheckedModeBanner: false,
+              initialRoute:
+                  authController.isAuthenticated.isTrue ? '/' : '/login',
+              getPages: [
+                GetPage(
+                  name: '/login',
+                  page: () => const LoginPage(),
+                ),
+                GetPage(
+                  name: '/',
+                  page: () => const HomePage(),
+                ),
+                GetPage(
+                  name: '/chat',
+                  page: () => const ChatPage(),
+                ),
+              ],
+            ),
+          );
+        }
+        return const SplashPage();
+      },
     );
-    // return FutureBuilder(
-    //   future: Future.delayed(
-    //     const Duration(seconds: 3),
-    //   ),
-    //   builder: (context, snapshot) {
-    //     if (snapshot.connectionState == ConnectionState.done) {
-    //       // return Obx(
-    //       //   () => GetMaterialApp(
-    //       //     debugShowCheckedModeBanner: false,
-    //       //     initialRoute:
-    //       //         authController.isAuthenticated.isTrue ? '/' : '/login',
-    //       //     getPages: [
-    //       //       GetPage(
-    //       //         name: '/login',
-    //       //         page: () => const LoginPage(),
-    //       //       ),
-    //       //       GetPage(
-    //       //         name: '/',
-    //       //         page: () => const HomePage(),
-    //       //       ),
-    //       //     ],
-    //       //   ),
-    //       // );
-    //     }
-    //     return const SplashPage();
-    //   },
-    // );
   }
 }

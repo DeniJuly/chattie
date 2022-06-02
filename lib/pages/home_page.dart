@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
       return AppBar(
         elevation: 0,
         centerTitle: true,
+        toolbarHeight: 70,
         backgroundColor: whiteColor,
         leading: Container(
           padding: const EdgeInsets.all(6.0),
@@ -119,7 +120,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
