@@ -13,9 +13,11 @@ class LoginPage extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: whiteColor,
+        statusBarIconBrightness: Brightness.dark,
       ),
     );
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         child: Container(
           width: double.infinity,

@@ -1,3 +1,4 @@
+import 'package:chattie/app/controllers/auth_controller.dart';
 import 'package:chattie/config/theme.dart';
 import 'package:chattie/widget/chat_card.dart';
 import 'package:flutter/material.dart';
@@ -6,16 +7,45 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
+    final authController = Get.find<AuthController>();
+    TextEditingController emailController = TextEditingController(text: "");
+    bool submit = false;
+
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: whiteColor,
       ),
     );
+
+    void submitForm() {
+      setState(() {
+        submit = true;
+      });
+      if (emailController.text.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Isi emailnya oy!!',
+              style: whiteColorStyle,
+            ),
+          ),
+        );
+      }
+      setState(() {
+        submit = false;
+      });
+    }
+
     PreferredSizeWidget header() {
       return AppBar(
         elevation: 0,
@@ -31,7 +61,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Pesan',
+          "Pesan",
           style: blackColorStyle.copyWith(
             fontSize: 22,
             fontWeight: bold,
@@ -87,7 +117,7 @@ class HomePage extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Masukkan username teman Anda',
+                    'Masukkan email teman Anda',
                     style: blackColorStyle.copyWith(
                       fontSize: 20,
                       fontWeight: extraBold,
@@ -110,9 +140,10 @@ class HomePage extends StatelessWidget {
                     child: Center(
                       child: Expanded(
                         child: TextFormField(
+                          controller: emailController,
                           style: blackColorStyle,
                           decoration: InputDecoration.collapsed(
-                            hintText: 'Masukkan username',
+                            hintText: 'Masukkan email',
                             hintStyle: grey2ColorStyle.copyWith(
                               fontSize: 16,
                             ),
@@ -128,7 +159,7 @@ class HomePage extends StatelessWidget {
                     height: 45,
                     width: double.infinity,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: submitForm,
                       style: TextButton.styleFrom(
                         backgroundColor: primaryColor,
                         shape: RoundedRectangleBorder(

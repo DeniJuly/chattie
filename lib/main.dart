@@ -46,7 +46,10 @@ class MyApp extends StatelessWidget {
             ),
           );
         }
-        return const SplashPage();
+        return FutureBuilder(
+          future: authController.firstInitialized(),
+          builder: (context, snapshot) => const SplashPage(),
+        );
       },
     );
   }

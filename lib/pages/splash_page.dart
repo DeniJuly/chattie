@@ -12,11 +12,13 @@ class SplashPage extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: whiteColor,
+        statusBarIconBrightness: Brightness.dark,
       ),
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: whiteColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
